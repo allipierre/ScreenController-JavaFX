@@ -53,7 +53,7 @@
   <children>
     <VBox alignment="TOP_CENTER" prefHeight="153.0" prefWidth="174.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
-            <MenuBar>
+            <MenuBar style="-fx-background-color: red;">
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>

@@ -40,11 +40,18 @@
 
 package screenframework;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -52,16 +59,38 @@ import javafx.fxml.Initializable;
  * @author Angie
  */
 public class Screen1Controller implements Initializable, ControlledScreen {
-
+	@FXML
+	private Menu IDT;
     ScreensController myController;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+    	Label lblRegister = new Label("Fil");
+		lblRegister.setOnMouseClicked((e) -> performRegistration());
+		IDT.setGraphic(lblRegister);
+		IDT.setText("");
+		
     }
     
+    
+    @FXML
+	private void performRegistration() {
+		try {
+			Stage primaryStage = new Stage();
+			Parent root = FXMLLoader.load(getClass().getResource("Screen2.fxml"));
+			Scene scene = new Scene(root);
+			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			primaryStage.setScene(scene);
+			primaryStage.show();
+
+		} catch (IOException s) {
+
+			s.printStackTrace();
+		}
+	}
+
     public void setScreenParent(ScreensController screenParent){
         myController = screenParent;
     }
